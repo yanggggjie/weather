@@ -1,1 +1,1 @@
-a vite react template
+a weather app

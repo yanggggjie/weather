@@ -11,10 +11,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@faker-js/faker": "^8.0.2",
     "@formkit/auto-animate": "^0.7.0",
     "@types/uuid": "^9.0.3",
     "@uidotdev/usehooks": "^2.1.1",
     "axios": "^1.4.0",
+    "chart.js": "^4.4.0",
+    "chartjs-plugin-datalabels": "^2.2.0",
     "clsx": "^2.0.0",
     "dayjs": "^1.11.9",
     "file-saver": "^2.0.5",
@@ -22,6 +25,7 @@
     "lodash-es": "^4.17.21",
     "qs": "^6.11.2",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.15.0",
