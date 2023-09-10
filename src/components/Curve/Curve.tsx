@@ -8,10 +8,6 @@ interface Props {
   cityList: ICity[]
 }
 
-function kelvinToCelsius(kelvin: number) {
-  return Math.round(kelvin - 273.15)
-}
-
 function Component({ cityList }: Props) {
   const { data, isLoading, error, setSize } = useSWRInfinite((index) => {
     const city = cityList[index]
@@ -30,38 +26,11 @@ function Component({ cityList }: Props) {
   }, [setSize])
   if (isLoading) return <div>Loading...</div>
   if (error) return <div>Error...</div>
-
-  const Step = 3
-  const forecastData = data.map((item) => {
-    return {
-      name: item.city.name,
-      dt_txt_list: item.list.reduce(
-        (previousValue, currentValue, currentIndex) => {
-          if (currentIndex % Step === 0)
-            return [...previousValue, currentValue.dt_txt]
-          return previousValue
-        },
-        [],
-      ),
-      feels_like_list: item.list.reduce(
-        (previousValue, currentValue, currentIndex) => {
-          if (currentIndex % Step === 0)
-            return [
-              ...previousValue,
-              kelvinToCelsius(currentValue.main.feels_like),
-            ]
-          return previousValue
-        },
-        [],
-      ),
-    }
-  })
-
-  console.log('forecastData', forecastData)
+  console.log('data', data)
 
   return (
     <div>
-      <CurveDisplay forecastData={forecastData}></CurveDisplay>
+      <CurveDisplay></CurveDisplay>
     </div>
   )
 }
