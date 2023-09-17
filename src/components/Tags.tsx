@@ -21,8 +21,6 @@ function Component({ cityList, setCityList }: Props) {
           })
         }
 
-        console.log('color', index2Color(index))
-
         return (
           <div
             style={{
@@ -31,7 +29,7 @@ function Component({ cityList, setCityList }: Props) {
             className={clsx(
               'flex flex-row items-center gap-2',
               'px-2 py-1',
-              'border-2',
+              'border-2 rounded-md',
             )}
             key={city.display_name}
           >

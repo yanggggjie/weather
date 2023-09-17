@@ -1,16 +1,18 @@
 import { clsx } from 'clsx'
-import { useState } from 'react'
 import Title from './components/Title.js'
 import Band from './components/Band.js'
 import Search from './components/Search/Search.js'
 import Tags from './components/Tags.js'
 import Curve from './components/Curve/Curve.js'
 import { useLocalStorage } from 'usehooks-ts'
-import Test from './components/Test.js'
 export interface ICity {
   display_name: string
   lon: string
   lat: string
+}
+
+export function toShortName(display_name: string) {
+  return display_name.split(',')[0]
 }
 
 function Component() {
@@ -27,11 +29,11 @@ function Component() {
     },
   ])
   return (
-    <div>
+    <div className={clsx('p-5', 'space-y-3')}>
       <Title></Title>
       <Band cityList={cityList}></Band>
       <Tags cityList={cityList} setCityList={setCityList}></Tags>
-      <Search setCityList={setCityList}></Search>
+      <Search cityList={cityList} setCityList={setCityList}></Search>
       {cityList.length > 0 && <Curve cityList={cityList}></Curve>}
     </div>
   )
